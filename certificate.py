@@ -7,7 +7,8 @@ def certified_mail_numbers(number : str, qnty : int):
         numbers = [number]
         for _ in range(qnty-1):
             number = numbers[-1]
-            number = f"{number[:12]}{int(number[12:-1])+1}{number[-1]}"
+            next11_1 = str(int(number[12:-1])+1).zfill(7)
+            number = f"{number[:12]}{next11_1}{number[-1]}"
             original = number
             number = list(map(lambda n: int(n), number[:-1]))
             sum_odd = sum(number[::2])
